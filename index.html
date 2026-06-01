@@ -1471,52 +1471,12 @@
           ✦ 1 semana gratis al lanzar
         </div>
       </div>
-      <div class="subscribe-modal-body">
-        <form id="subscribe-form" onsubmit="submitSubscribe(event)">
-          <div class="form-group">
-            <label class="form-label" for="sub-name">Nombre</label>
-            <input class="form-input" type="text" id="sub-name" name="name" required placeholder="Cómo te llamas">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="sub-email">Email</label>
-            <input class="form-input" type="email" id="sub-email" name="email" required placeholder="tu@email.com">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="sub-wa">WhatsApp <span class="form-label-opt">(opcional, con prefijo)</span></label>
-            <input class="form-input" type="tel" id="sub-wa" name="whatsapp" placeholder="+34 600 000 000">
-          </div>
-          <div class="form-group">
-            <label class="form-label">¿Por dónde quieres recibir las recetas?</label>
-            <div class="channel-group">
-              <div class="channel-option">
-                <input type="radio" name="channel" id="ch-email" value="email" checked>
-                <label for="ch-email">📧 Email</label>
-              </div>
-              <div class="channel-option">
-                <input type="radio" name="channel" id="ch-both" value="both">
-                <label for="ch-both">📧 + WhatsApp</label>
-              </div>
-            </div>
-          </div>
-          <button type="submit" class="form-submit">
-            Apuntarme al Club
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-          <p class="form-disclaimer">El Club está en preparación. Apuntarse no implica pago. Te avisaremos por email cuando esté listo y empezarás con 1 semana gratis sin coste.</p>
-        </form>
-      </div>
-    </div>
 
-    <div class="confirmation" id="subscribe-confirmation">
-      <div class="confirmation-icon">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12l5 5L20 7"/>
-        </svg>
-      </div>
-      <h3>¡Estás apuntado!</h3>
-      <p>Estamos terminando de preparar el sistema. Cuando esté listo, te enviaremos un email para que actives tu semana gratuita.</p>
-      <div class="free-week-badge">
-        ✦ Tienes 1 semana gratis reservada
+      <div class="subscribe-modal-body">
+        <div class="subscribe-card">
+          <script src="https://js-eu1.hsforms.net/forms/embed/148610000.js" defer></script>
+          <div class="hs-form-frame" data-region="eu1" data-form-id="7113aa3b-543d-4b84-a217-06f7f2faf172" data-portal-id="148610000"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1725,27 +1685,7 @@
 
   // ============ SUSCRIPCIÓN ============
   function openSubscribeModal() {
-    document.getElementById('subscribe-form-view').style.display = 'block';
-    document.getElementById('subscribe-confirmation').classList.remove('active');
     openModal('subscribe-modal');
-  }
-  function submitSubscribe(e) {
-    e.preventDefault();
-    const form = e.target;
-    const data = {
-      name: form.name.value,
-      email: form.email.value,
-      whatsapp: form.whatsapp.value,
-      channel: form.querySelector('input[name="channel"]:checked').value,
-      timestamp: new Date().toISOString()
-    };
-    // TODO: aquí va la llamada al backend cuando conectes Brevo/Resend/Vercel
-    const existing = JSON.parse(localStorage.getItem('manzaki_subscribers') || '[]');
-    existing.push(data);
-    localStorage.setItem('manzaki_subscribers', JSON.stringify(existing));
-
-    document.getElementById('subscribe-form-view').style.display = 'none';
-    document.getElementById('subscribe-confirmation').classList.add('active');
   }
 </script>
 
