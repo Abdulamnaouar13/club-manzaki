@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Club Manzaki — Recetas exclusivas cada sábado</title>
-<meta name="description" content="Recibe cada sábado una receta exclusiva de churros, galletas y postres caseros directamente en tu WhatsApp o email.">
+<meta name="description" content="Recibe recetas personalizadas cada sábado. Apúntate ahora y consigue 1 semana gratis cuando lancemos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -34,16 +34,13 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-
-  /* Grain overlay */
   .grain {
     position: fixed; inset: 0; pointer-events: none; opacity: 0.45; z-index: 1;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   }
-
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
 
-  /* ========== NAV ========== */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     backdrop-filter: blur(20px);
@@ -71,10 +68,11 @@
     font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
     text-decoration: none; border: 1px solid var(--cocoa);
     transition: all 0.25s ease;
+    cursor: pointer;
   }
   .nav-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--cocoa); }
 
-  /* ========== HERO ========== */
+  /* HERO */
   .hero {
     background: linear-gradient(170deg, var(--cocoa-deep) 0%, var(--cocoa) 60%, var(--cocoa-soft) 100%);
     color: var(--cream);
@@ -117,23 +115,41 @@
   }
   .hero h1 {
     font-family: 'Fraunces', serif;
-    font-size: clamp(44px, 6.5vw, 84px);
+    font-size: clamp(44px, 6.5vw, 80px);
     font-weight: 500;
-    line-height: 0.98;
+    line-height: 1.0;
     letter-spacing: -0.025em;
     margin-bottom: 24px;
   }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--gold-bright);
-    font-weight: 400;
-  }
+  .hero h1 em { font-style: italic; color: var(--gold-bright); font-weight: 400; }
   .hero-lede {
     font-size: 19px; line-height: 1.55;
     color: rgba(245,238,226,0.78);
-    margin-bottom: 36px; max-width: 480px;
+    margin-bottom: 32px; max-width: 500px;
     font-weight: 300;
   }
+  .free-week-banner {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: rgba(212,175,55,0.12);
+    border: 1px solid rgba(212,175,55,0.35);
+    padding: 12px 20px;
+    border-radius: 14px;
+    margin-bottom: 32px;
+  }
+  .free-week-icon {
+    width: 36px; height: 36px;
+    background: var(--gold);
+    color: var(--cocoa);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: 18px;
+  }
+  .free-week-text {
+    font-size: 14px;
+    color: var(--cream);
+  }
+  .free-week-text strong { color: var(--gold-bright); font-weight: 600; }
   .hero-cta-group {
     display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
   }
@@ -141,6 +157,7 @@
     background: var(--gold);
     color: var(--cocoa);
     padding: 18px 34px; border-radius: 100px;
+    font-family: inherit;
     font-size: 15px; font-weight: 600; letter-spacing: 0.02em;
     text-decoration: none; border: none; cursor: pointer;
     transition: all 0.25s ease;
@@ -151,20 +168,32 @@
     transform: translateY(-2px);
     box-shadow: 0 12px 30px -10px rgba(200,151,63,0.5);
   }
+  .btn-secondary {
+    background: transparent;
+    color: var(--cream);
+    padding: 18px 28px;
+    border: 1px solid rgba(245,238,226,0.3);
+    border-radius: 100px;
+    font-family: inherit;
+    font-size: 14px; font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .btn-secondary:hover {
+    background: rgba(245,238,226,0.08);
+    border-color: rgba(245,238,226,0.5);
+  }
   .btn-arrow { transition: transform 0.25s ease; }
   .btn-primary:hover .btn-arrow { transform: translateX(4px); }
   .hero-meta {
     font-size: 13px; color: rgba(245,238,226,0.55);
+    margin-top: 14px;
   }
 
-  /* Hero visual — recipe card mockup */
-  .hero-visual {
-    position: relative;
-  }
-  .recipe-card-stack {
-    position: relative;
-    transform: rotate(-2deg);
-  }
+  /* Hero visual */
+  .hero-visual { position: relative; }
+  .recipe-card-stack { position: relative; transform: rotate(-2deg); }
   .recipe-card {
     background: var(--cream-light);
     border-radius: 18px;
@@ -206,10 +235,7 @@
   }
   .recipe-meta-item { display: flex; align-items: center; gap: 6px; }
   .recipe-meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
-  .recipe-ingredients {
-    font-size: 13px; line-height: 1.7;
-    color: rgba(26,20,16,0.75);
-  }
+  .recipe-ingredients { font-size: 13px; line-height: 1.7; color: rgba(26,20,16,0.75); }
   .recipe-ingredients-title {
     font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--gold-warm); font-weight: 600; margin-bottom: 8px;
@@ -229,7 +255,7 @@
     z-index: -1;
   }
 
-  /* ========== TRUST STRIP ========== */
+  /* TRUST STRIP */
   .trust-strip {
     background: var(--cream-light);
     padding: 28px 0;
@@ -241,15 +267,11 @@
     font-size: 13px; color: rgba(26,20,16,0.6);
   }
   .trust-item {
-    display: flex; align-items: center; gap: 10px;
-    font-weight: 500;
+    display: flex; align-items: center; gap: 10px; font-weight: 500;
   }
-  .trust-icon {
-    width: 28px; height: 28px;
-    color: var(--gold-warm);
-  }
+  .trust-icon { width: 28px; height: 28px; color: var(--gold-warm); }
 
-  /* ========== SECTION COMMON ========== */
+  /* SECTION COMMON */
   section { padding: 100px 0; position: relative; }
   .section-tag {
     display: inline-block;
@@ -260,8 +282,7 @@
   .section-title {
     font-family: 'Fraunces', serif;
     font-size: clamp(34px, 5vw, 56px);
-    font-weight: 500;
-    line-height: 1.05;
+    font-weight: 500; line-height: 1.05;
     letter-spacing: -0.02em;
     color: var(--cocoa);
     margin-bottom: 22px;
@@ -273,231 +294,12 @@
     font-weight: 300;
   }
 
-  /* ========== HOW IT WORKS ========== */
-  .how-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 32px; margin-top: 60px;
-  }
-  .how-card {
-    background: var(--cream-light);
-    border: 1px solid var(--line-light);
-    border-radius: 20px;
-    padding: 38px 32px;
-    position: relative;
-    transition: all 0.3s ease;
-  }
-  .how-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--gold-warm);
-    box-shadow: 0 20px 50px -20px rgba(42,24,16,0.15);
-  }
-  .how-step {
-    font-family: 'Fraunces', serif;
-    font-size: 56px; font-weight: 500;
-    color: var(--gold);
-    line-height: 1; opacity: 0.5;
-    margin-bottom: 18px;
-  }
-  .how-card h3 {
-    font-family: 'Fraunces', serif;
-    font-size: 24px; font-weight: 600;
-    color: var(--cocoa); margin-bottom: 12px;
-    letter-spacing: -0.01em;
-  }
-  .how-card p {
-    font-size: 15px; line-height: 1.6;
-    color: rgba(26,20,16,0.7);
-  }
-
-  /* ========== PRICING / OFFER ========== */
-  .offer {
-    background: linear-gradient(165deg, var(--cocoa-deep), var(--cocoa-soft));
-    color: var(--cream);
-    border-radius: 28px;
-    padding: 70px 60px;
-    margin: 40px 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .offer::before {
-    content: ''; position: absolute; top: -100px; right: -100px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(212,175,55,0.18) 0%, transparent 65%);
-  }
-  .offer-grid {
-    display: grid; grid-template-columns: 1.2fr 1fr;
-    gap: 60px; align-items: center; position: relative; z-index: 2;
-  }
-  .offer h2 {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(32px, 4.5vw, 48px);
-    font-weight: 500; line-height: 1.05;
-    letter-spacing: -0.02em; margin-bottom: 20px;
-  }
-  .offer h2 em { font-style: italic; color: var(--gold-bright); }
-  .offer-text {
-    font-size: 17px; line-height: 1.65;
-    color: rgba(245,238,226,0.8); font-weight: 300;
-  }
-  .offer-card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(212,175,55,0.2);
-    border-radius: 18px;
-    padding: 36px;
-    text-align: center;
-  }
-  .offer-card-tag {
-    display: inline-block;
-    font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--gold-bright); font-weight: 600;
-    padding: 6px 14px; border: 1px solid rgba(212,175,55,0.4);
-    border-radius: 100px; margin-bottom: 20px;
-  }
-  .offer-price {
-    font-family: 'Fraunces', serif;
-    font-size: 68px; font-weight: 500;
-    color: var(--cream); line-height: 1;
-    margin-bottom: 6px;
-  }
-  .offer-price .currency { font-size: 32px; vertical-align: top; margin-right: 4px; color: var(--gold-bright); }
-  .offer-price .period { font-size: 16px; color: rgba(245,238,226,0.5); font-weight: 300; }
-  .offer-strike {
-    font-size: 14px; color: rgba(245,238,226,0.45);
-    text-decoration: line-through; margin-bottom: 22px;
-  }
-  .offer-features {
-    list-style: none; text-align: left; margin: 28px 0;
-    border-top: 1px solid rgba(212,175,55,0.15);
-    padding-top: 24px;
-  }
-  .offer-features li {
-    padding: 8px 0; font-size: 14px;
-    color: rgba(245,238,226,0.85);
-    display: flex; align-items: flex-start; gap: 12px;
-  }
-  .check-icon {
-    color: var(--gold-bright);
-    flex-shrink: 0; margin-top: 3px;
-  }
-
-  /* ========== FORM ========== */
-  .form-section {
-    background: var(--cream-light);
-    padding: 90px 0;
-  }
-  .form-wrap {
-    max-width: 580px; margin: 0 auto;
-    text-align: center;
-  }
-  .form-card {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 24px;
-    padding: 48px 42px;
-    margin-top: 36px;
-    box-shadow: 0 20px 60px -25px rgba(42,24,16,0.18);
-  }
-  .form-group {
-    margin-bottom: 18px; text-align: left;
-  }
-  .form-label {
-    display: block;
-    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--cocoa); font-weight: 600;
-    margin-bottom: 8px;
-  }
-  .form-label-optional {
-    color: var(--gold-warm); font-weight: 400; letter-spacing: 0;
-    text-transform: none; font-size: 12px;
-  }
-  .form-input {
-    width: 100%; padding: 14px 18px;
-    font-family: inherit; font-size: 15px;
-    background: var(--cream-light);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    color: var(--ink);
-    transition: all 0.25s ease;
-  }
-  .form-input:focus {
-    outline: none;
-    border-color: var(--gold);
-    background: var(--paper);
-    box-shadow: 0 0 0 3px rgba(200,151,63,0.12);
-  }
-  .channel-group {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 10px; margin-bottom: 8px;
-  }
-  .channel-option {
-    position: relative;
-  }
-  .channel-option input { position: absolute; opacity: 0; }
-  .channel-option label {
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-    padding: 14px;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: var(--cream-light);
-    cursor: pointer;
-    font-size: 14px; font-weight: 500;
-    color: var(--cocoa-soft);
-    transition: all 0.2s ease;
-  }
-  .channel-option input:checked + label {
-    border-color: var(--gold);
-    background: rgba(200,151,63,0.08);
-    color: var(--cocoa);
-  }
-  .form-submit {
-    width: 100%; padding: 18px;
-    background: var(--cocoa); color: var(--cream);
-    border: none; border-radius: 100px;
-    font-family: inherit; font-size: 15px; font-weight: 600;
-    letter-spacing: 0.02em; cursor: pointer;
-    transition: all 0.25s ease;
-    margin-top: 8px;
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-  }
-  .form-submit:hover {
-    background: var(--gold);
-    color: var(--cocoa);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px -10px rgba(42,24,16,0.3);
-  }
-  .form-disclaimer {
-    font-size: 12px; color: rgba(26,20,16,0.5);
-    margin-top: 18px; text-align: center; line-height: 1.5;
-  }
-  .form-status {
-    display: none;
-    padding: 16px; border-radius: 12px;
-    background: rgba(122,139,111,0.12);
-    border: 1px solid var(--sage);
-    color: var(--cocoa);
-    margin-top: 16px; font-size: 14px;
-    text-align: center;
-  }
-  .form-status.active { display: block; animation: fadeIn 0.4s ease; }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ========== RECETAS GRATUITAS ========== */
+  /* RECETAS */
   .recipes-section {
     background: linear-gradient(180deg, var(--paper) 0%, var(--cream-light) 100%);
-    padding: 100px 0;
   }
-  .recipes-head {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 60px;
-  }
-  .recipes-head .section-lede {
-    margin: 0 auto;
-  }
+  .recipes-head { text-align: center; max-width: 700px; margin: 0 auto 50px; }
+  .recipes-head .section-lede { margin: 0 auto; }
   .recipes-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -511,6 +313,7 @@
     position: relative;
     transition: all 0.35s ease;
     display: flex; flex-direction: column;
+    cursor: pointer;
   }
   .recipe-tile:hover {
     transform: translateY(-6px);
@@ -521,78 +324,50 @@
     height: 200px;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(160deg, #5C3A1F 0%, #8B5A2B 50%, #4A2C13 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
   }
-  .recipe-illu.var-2 {
-    background: linear-gradient(160deg, #3D1F0F 0%, #6B3818 50%, #2A1810 100%);
-  }
-  .recipe-illu.var-3 {
-    background: linear-gradient(160deg, #8B6F4A 0%, #C8973F 50%, #7A5530 100%);
-  }
-  .recipe-illu svg {
-    width: 80%;
-    height: 80%;
-    opacity: 0.92;
-  }
+  .recipe-illu.churros { background: linear-gradient(160deg, #5C3A1F 0%, #8B5A2B 50%, #4A2C13 100%); }
+  .recipe-illu.cupcakes { background: linear-gradient(160deg, #8B6F4A 0%, #C8973F 50%, #7A5530 100%); }
+  .recipe-illu.galletas { background: linear-gradient(160deg, #3D1F0F 0%, #6B3818 50%, #2A1810 100%); }
+  .recipe-illu svg { width: 80%; height: 80%; opacity: 0.92; }
   .recipe-illu-tag {
-    position: absolute;
-    top: 16px; left: 16px;
+    position: absolute; top: 16px; left: 16px;
     background: rgba(251,248,242,0.95);
     backdrop-filter: blur(8px);
     color: var(--cocoa);
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding: 6px 12px;
-    border-radius: 100px;
+    font-size: 10px; letter-spacing: 0.16em;
+    text-transform: uppercase; font-weight: 600;
+    padding: 6px 12px; border-radius: 100px;
   }
-  .recipe-illu-tag.free { color: var(--sage); }
-  .recipe-illu-tag.locked { background: rgba(42,24,16,0.85); color: var(--gold-bright); }
+  .recipe-illu-tag.unlocked { color: var(--sage); }
+  .recipe-illu-tag.feedback {
+    background: rgba(42,24,16,0.85); color: var(--gold-bright);
+  }
   .recipe-tile-body {
     padding: 26px 26px 28px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    flex: 1; display: flex; flex-direction: column;
   }
   .recipe-tile h3 {
     font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--cocoa);
-    line-height: 1.15;
+    font-size: 22px; font-weight: 600;
+    color: var(--cocoa); line-height: 1.15;
     margin-bottom: 10px;
     letter-spacing: -0.01em;
   }
   .recipe-tile h3 em { font-style: italic; color: var(--gold-warm); }
   .recipe-tile-meta {
-    display: flex;
-    gap: 14px;
-    font-size: 12px;
-    color: rgba(26,20,16,0.55);
-    margin-bottom: 16px;
-    flex-wrap: wrap;
+    display: flex; gap: 14px;
+    font-size: 12px; color: rgba(26,20,16,0.55);
+    margin-bottom: 16px; flex-wrap: wrap;
   }
-  .recipe-tile-meta span {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-  }
+  .recipe-tile-meta span { display: inline-flex; align-items: center; gap: 5px; }
   .recipe-tile-meta span::before {
-    content: '';
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    background: var(--gold);
+    content: ''; width: 4px; height: 4px;
+    border-radius: 50%; background: var(--gold);
   }
   .recipe-tile-preview {
-    font-size: 14px;
-    color: rgba(26,20,16,0.7);
-    line-height: 1.6;
-    margin-bottom: 22px;
-    flex: 1;
+    font-size: 14px; color: rgba(26,20,16,0.7);
+    line-height: 1.6; margin-bottom: 22px; flex: 1;
   }
   .recipe-tile-cta {
     background: transparent;
@@ -600,22 +375,17 @@
     color: var(--cocoa);
     padding: 12px 20px;
     border-radius: 100px;
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: 600;
+    font-family: inherit; font-size: 13px; font-weight: 600;
     cursor: pointer;
     transition: all 0.25s ease;
-    text-decoration: none;
     text-align: center;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%;
   }
   .recipe-tile-cta:hover {
-    background: var(--cocoa);
-    color: var(--cream-light);
+    background: var(--cocoa); color: var(--cream-light);
   }
+  /* Estado bloqueado por feedback */
   .recipe-tile.locked .recipe-tile-cta {
     background: var(--gold);
     border-color: var(--gold);
@@ -625,61 +395,37 @@
     background: var(--gold-bright);
     border-color: var(--gold-bright);
   }
-  .lock-overlay {
+  .recipe-tile.locked .recipe-illu::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(42,24,16,0.5);
+    backdrop-filter: blur(3px);
+  }
+  .recipe-tile.locked .recipe-illu .lock-symbol {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 0%, rgba(42,24,16,0.78) 70%, rgba(42,24,16,0.92) 100%);
-    backdrop-filter: blur(2px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 30px 24px;
-    text-align: center;
-    color: var(--cream);
+    display: flex; align-items: center; justify-content: center;
     z-index: 2;
   }
-  .lock-overlay svg {
-    width: 36px; height: 36px;
+  .recipe-tile.locked .recipe-illu .lock-symbol svg {
+    width: 44px; height: 44px; opacity: 1;
     color: var(--gold-bright);
-    margin-bottom: 12px;
   }
-  .lock-overlay-text {
-    font-family: 'Fraunces', serif;
-    font-size: 16px;
-    font-style: italic;
-    color: var(--cream);
-    margin-bottom: 14px;
-  }
-  .lock-overlay-cta {
-    background: var(--gold);
-    color: var(--cocoa);
-    padding: 10px 22px;
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-  }
-  .lock-overlay-cta:hover { background: var(--gold-bright); }
 
-  /* ========== MODAL DE RECETA ========== */
+  /* MODAL DE RECETA */
   .modal-backdrop {
-    position: fixed;
-    inset: 0;
+    position: fixed; inset: 0;
     background: rgba(31,20,12,0.88);
     backdrop-filter: blur(8px);
     z-index: 200;
     display: none;
-    align-items: center;
-    justify-content: center;
+    align-items: center; justify-content: center;
     padding: 20px;
     animation: backdropIn 0.3s ease;
   }
   .modal-backdrop.active { display: flex; }
   @keyframes backdropIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; } to { opacity: 1; }
   }
   .modal {
     background: var(--paper);
@@ -707,92 +453,66 @@
     color: var(--cocoa);
     z-index: 3;
     transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
   }
-  .modal-close:hover { background: var(--gold); color: var(--cocoa); }
+  .modal-close:hover { background: var(--gold); }
   .modal-header {
-    background: linear-gradient(160deg, #5C3A1F 0%, #8B5A2B 100%);
     padding: 50px 40px;
     color: var(--cream);
     border-radius: 24px 24px 0 0;
   }
+  .modal-header.churros { background: linear-gradient(160deg, #5C3A1F 0%, #8B5A2B 100%); }
+  .modal-header.cupcakes { background: linear-gradient(160deg, #8B6F4A 0%, #C8973F 100%); }
+  .modal-header.galletas { background: linear-gradient(160deg, #3D1F0F 0%, #6B3818 100%); }
   .modal-header-tag {
     display: inline-block;
-    font-size: 10px;
-    letter-spacing: 0.22em;
+    font-size: 10px; letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--gold-bright);
-    margin-bottom: 12px;
-    font-weight: 600;
+    margin-bottom: 12px; font-weight: 600;
   }
   .modal-header h2 {
     font-family: 'Fraunces', serif;
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 1.1;
-    margin-bottom: 16px;
+    font-size: 32px; font-weight: 500;
+    line-height: 1.1; margin-bottom: 16px;
     letter-spacing: -0.015em;
   }
   .modal-header h2 em { font-style: italic; color: var(--gold-bright); }
   .modal-meta {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    font-size: 13px;
-    color: rgba(245,238,226,0.8);
+    display: flex; gap: 24px; flex-wrap: wrap;
+    font-size: 13px; color: rgba(245,238,226,0.8);
   }
-  .modal-meta span {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
+  .modal-meta span { display: inline-flex; align-items: center; gap: 8px; }
   .modal-meta span::before {
-    content: '';
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--gold-bright);
+    content: ''; width: 5px; height: 5px;
+    border-radius: 50%; background: var(--gold-bright);
   }
   .modal-body { padding: 40px; }
   .modal-section { margin-bottom: 32px; }
   .modal-section:last-child { margin-bottom: 0; }
   .modal-section h3 {
     font-family: 'Fraunces', serif;
-    font-size: 20px;
-    color: var(--cocoa);
-    margin-bottom: 14px;
-    font-weight: 600;
+    font-size: 20px; color: var(--cocoa);
+    margin-bottom: 14px; font-weight: 600;
   }
-  .ingredients-list {
-    list-style: none;
-    padding: 0;
-  }
+  .ingredients-list { list-style: none; padding: 0; }
   .ingredients-list li {
     padding: 8px 0;
     border-bottom: 1px solid var(--line-light);
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    color: var(--ink);
+    display: flex; justify-content: space-between;
+    font-size: 14px; color: var(--ink);
   }
   .ingredients-list li:last-child { border-bottom: none; }
   .ingredient-amount {
-    color: var(--gold-warm);
-    font-weight: 600;
+    color: var(--gold-warm); font-weight: 600;
     font-variant-numeric: tabular-nums;
   }
-  .steps-list {
-    list-style: none;
-    padding: 0;
-    counter-reset: step;
-  }
+  .steps-list { list-style: none; padding: 0; counter-reset: step; }
   .steps-list li {
     counter-increment: step;
     padding: 14px 0 14px 50px;
     position: relative;
-    font-size: 14px;
-    line-height: 1.65;
+    font-size: 14px; line-height: 1.65;
     color: rgba(26,20,16,0.85);
     border-bottom: 1px solid var(--line-light);
   }
@@ -802,11 +522,9 @@
     position: absolute;
     left: 0; top: 14px;
     font-family: 'Fraunces', serif;
-    font-size: 22px;
-    color: var(--gold);
+    font-size: 22px; color: var(--gold);
     font-weight: 600;
-    width: 34px;
-    text-align: center;
+    width: 34px; text-align: center;
     line-height: 1;
   }
   .tip-box {
@@ -817,42 +535,388 @@
     margin-top: 24px;
   }
   .tip-box-title {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold-warm);
-    font-weight: 600;
-    margin-bottom: 6px;
+    font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold-warm);
+    font-weight: 600; margin-bottom: 6px;
   }
   .tip-box-text {
+    font-size: 14px; color: rgba(26,20,16,0.75);
+    font-style: italic; line-height: 1.55;
+  }
+
+  /* MODAL ENCUESTA */
+  .survey-modal { max-width: 540px; }
+  .survey-header {
+    padding: 36px 40px 24px;
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+  }
+  .survey-header-tag {
+    font-size: 11px; letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold-warm); font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .survey-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px; color: var(--cocoa);
+    font-weight: 500; line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .survey-header h2 em { font-style: italic; color: var(--gold-warm); }
+  .survey-header p {
+    font-size: 14px; color: rgba(26,20,16,0.65);
+    max-width: 380px; margin: 0 auto;
+  }
+  .survey-body { padding: 32px 40px 40px; }
+  .survey-q {
+    margin-bottom: 24px;
+  }
+  .survey-q-label {
+    display: block;
+    font-size: 13px; font-weight: 600;
+    color: var(--cocoa);
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+  .stars {
+    display: flex; gap: 6px;
+    justify-content: flex-start;
+  }
+  .star-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: rgba(42,24,16,0.2);
+    transition: all 0.2s ease;
+    font-size: 32px;
+    line-height: 1;
+  }
+  .star-btn:hover, .star-btn.active {
+    color: var(--gold);
+    transform: scale(1.1);
+  }
+  .star-btn.active { color: var(--gold-bright); }
+  .survey-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 14px 16px;
+    font-family: inherit;
     font-size: 14px;
-    color: rgba(26,20,16,0.75);
-    font-style: italic;
-    line-height: 1.55;
+    background: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    color: var(--ink);
+    resize: vertical;
+    transition: all 0.25s ease;
+  }
+  .survey-textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: var(--paper);
+    box-shadow: 0 0 0 3px rgba(200,151,63,0.12);
+  }
+  .survey-submit {
+    width: 100%; padding: 16px;
+    background: var(--cocoa); color: var(--cream);
+    border: none; border-radius: 100px;
+    font-family: inherit; font-size: 14px; font-weight: 600;
+    letter-spacing: 0.02em; cursor: pointer;
+    transition: all 0.25s ease;
+    margin-top: 8px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .survey-submit:hover {
+    background: var(--gold);
+    color: var(--cocoa);
+    transform: translateY(-2px);
+  }
+  .survey-submit:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+  }
+  .survey-note {
+    font-size: 12px; color: rgba(26,20,16,0.5);
+    margin-top: 16px; text-align: center;
   }
 
-  @media (max-width: 880px) {
-    .recipes-grid { grid-template-columns: 1fr; gap: 20px; }
-    .modal-header { padding: 36px 26px; }
-    .modal-header h2 { font-size: 26px; }
-    .modal-body { padding: 28px 24px; }
+  /* SUSCRIBIRSE — bloque dorado */
+  .subscribe-section {
+    background: linear-gradient(165deg, var(--cocoa-deep), var(--cocoa-soft));
+    color: var(--cream);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .subscribe-section::before {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(212,175,55,0.18) 0%, transparent 65%);
+  }
+  .subscribe-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: 60px; align-items: center; position: relative; z-index: 2;
+  }
+  .subscribe-section .section-tag { color: var(--gold-bright); }
+  .subscribe-section .section-title { color: var(--cream); }
+  .subscribe-section .section-title em { color: var(--gold-bright); }
+  .subscribe-text {
+    font-size: 17px; line-height: 1.65;
+    color: rgba(245,238,226,0.8); font-weight: 300;
+    margin-bottom: 24px;
+  }
+  .subscribe-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 18px;
+    padding: 36px;
+    text-align: center;
+  }
+  .subscribe-card-tag {
+    display: inline-block;
+    font-size: 10px; letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-bright); font-weight: 600;
+    padding: 6px 14px; border: 1px solid rgba(212,175,55,0.4);
+    border-radius: 100px; margin-bottom: 20px;
+  }
+  .subscribe-price {
+    font-family: 'Fraunces', serif;
+    font-size: 56px; font-weight: 500;
+    color: var(--cream); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .subscribe-price .currency {
+    font-size: 28px; vertical-align: top;
+    margin-right: 4px; color: var(--gold-bright);
+  }
+  .subscribe-price .period {
+    font-size: 15px; color: rgba(245,238,226,0.5);
+    font-weight: 300;
+  }
+  .subscribe-strike {
+    font-size: 13px; color: rgba(245,238,226,0.45);
+    text-decoration: line-through; margin-bottom: 22px;
+  }
+  .subscribe-features {
+    list-style: none; text-align: left; margin: 24px 0 28px;
+    border-top: 1px solid rgba(212,175,55,0.15);
+    padding-top: 20px;
+  }
+  .subscribe-features li {
+    padding: 7px 0; font-size: 13px;
+    color: rgba(245,238,226,0.85);
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .check-icon {
+    color: var(--gold-bright);
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .check-icon.highlight { color: var(--gold-bright); }
+  .subscribe-btn {
+    width: 100%;
+    background: var(--gold);
+    color: var(--cocoa);
+    padding: 16px 28px;
+    border: none; border-radius: 100px;
+    font-family: inherit;
+    font-size: 14px; font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .subscribe-btn:hover {
+    background: var(--gold-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -10px rgba(200,151,63,0.5);
   }
 
-  /* ========== FAQ ========== */
+  /* MODAL SUSCRIPCIÓN */
+  .subscribe-modal { max-width: 520px; }
+  .subscribe-modal-header {
+    padding: 36px 40px 28px;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+  }
+  .subscribe-modal-header-tag {
+    font-size: 11px; letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold-warm); font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .subscribe-modal-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px; color: var(--cocoa);
+    font-weight: 500; line-height: 1.15;
+    letter-spacing: -0.01em; margin-bottom: 10px;
+  }
+  .subscribe-modal-header h2 em { font-style: italic; color: var(--gold-warm); }
+  .subscribe-modal-header p {
+    font-size: 14px; color: rgba(26,20,16,0.65);
+    line-height: 1.55; max-width: 380px; margin: 0 auto;
+  }
+  .free-week-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,151,63,0.12);
+    border: 1px solid rgba(200,151,63,0.3);
+    color: var(--gold-warm);
+    font-size: 12px; font-weight: 600;
+    padding: 8px 14px; border-radius: 100px;
+    margin-top: 14px;
+  }
+  .subscribe-modal-body { padding: 28px 40px 36px; }
+  .form-group { margin-bottom: 18px; text-align: left; }
+  .form-label {
+    display: block;
+    font-size: 12px; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cocoa); font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .form-label-opt {
+    color: var(--gold-warm); font-weight: 400;
+    letter-spacing: 0; text-transform: none;
+    font-size: 12px;
+  }
+  .form-input {
+    width: 100%; padding: 14px 16px;
+    font-family: inherit; font-size: 14px;
+    background: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    color: var(--ink);
+    transition: all 0.25s ease;
+  }
+  .form-input:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: var(--paper);
+    box-shadow: 0 0 0 3px rgba(200,151,63,0.12);
+  }
+  .channel-group {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px; margin-bottom: 8px;
+  }
+  .channel-option { position: relative; }
+  .channel-option input { position: absolute; opacity: 0; }
+  .channel-option label {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 13px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--cream-light);
+    cursor: pointer;
+    font-size: 13px; font-weight: 500;
+    color: var(--cocoa-soft);
+    transition: all 0.2s ease;
+  }
+  .channel-option input:checked + label {
+    border-color: var(--gold);
+    background: rgba(200,151,63,0.08);
+    color: var(--cocoa);
+  }
+  .form-submit {
+    width: 100%; padding: 16px;
+    background: var(--cocoa); color: var(--cream);
+    border: none; border-radius: 100px;
+    font-family: inherit;
+    font-size: 14px; font-weight: 600;
+    letter-spacing: 0.02em; cursor: pointer;
+    transition: all 0.25s ease;
+    margin-top: 8px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .form-submit:hover {
+    background: var(--gold);
+    color: var(--cocoa);
+    transform: translateY(-2px);
+  }
+  .form-disclaimer {
+    font-size: 12px; color: rgba(26,20,16,0.55);
+    margin-top: 16px; text-align: center; line-height: 1.5;
+  }
+
+  /* CONFIRMATION (interior modal) */
+  .confirmation {
+    text-align: center;
+    padding: 50px 40px;
+    display: none;
+  }
+  .confirmation.active { display: block; }
+  .confirmation-icon {
+    width: 80px; height: 80px;
+    background: rgba(122,139,111,0.12);
+    border: 2px solid var(--sage);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    color: var(--sage);
+  }
+  .confirmation h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px; color: var(--cocoa);
+    font-weight: 500; margin-bottom: 14px;
+  }
+  .confirmation p {
+    font-size: 14px;
+    color: rgba(26,20,16,0.7);
+    line-height: 1.6;
+    max-width: 360px;
+    margin: 0 auto 14px;
+  }
+  .confirmation .free-week-badge { margin: 14px auto 0; }
+
+  /* HOW IT WORKS */
+  .how-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 32px; margin-top: 60px;
+  }
+  .how-card {
+    background: var(--cream-light);
+    border: 1px solid var(--line-light);
+    border-radius: 20px;
+    padding: 38px 32px;
+    transition: all 0.3s ease;
+  }
+  .how-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold-warm);
+    box-shadow: 0 20px 50px -20px rgba(42,24,16,0.15);
+  }
+  .how-step {
+    font-family: 'Fraunces', serif;
+    font-size: 56px; font-weight: 500;
+    color: var(--gold);
+    line-height: 1; opacity: 0.5;
+    margin-bottom: 18px;
+  }
+  .how-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px; font-weight: 600;
+    color: var(--cocoa); margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .how-card p {
+    font-size: 15px; line-height: 1.6;
+    color: rgba(26,20,16,0.7);
+  }
+
+  /* FAQ */
   .faq-section { background: var(--paper); }
   .faq-list { max-width: 760px; margin: 50px auto 0; }
-  .faq-item {
-    border-bottom: 1px solid var(--line);
-    padding: 24px 0;
-  }
+  .faq-item { border-bottom: 1px solid var(--line); padding: 24px 0; }
   .faq-q {
     font-family: 'Fraunces', serif;
     font-size: 19px; font-weight: 500;
     color: var(--cocoa);
     cursor: pointer; display: flex;
     justify-content: space-between; align-items: center;
-    gap: 20px;
-    list-style: none;
+    gap: 20px; list-style: none;
   }
   .faq-q::-webkit-details-marker { display: none; }
   .faq-q::after {
@@ -869,7 +933,7 @@
     max-width: 90%;
   }
 
-  /* ========== FOOTER ========== */
+  /* FOOTER */
   footer {
     background: var(--cocoa-deep);
     color: rgba(245,238,226,0.6);
@@ -894,7 +958,8 @@
     font-family: 'Fraunces', serif;
   }
   .footer-col h4 {
-    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase;
     color: var(--gold-bright); margin-bottom: 16px;
     font-weight: 600;
   }
@@ -908,30 +973,35 @@
   .footer-bottom {
     border-top: 1px solid rgba(245,238,226,0.1);
     padding-top: 24px;
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
     font-size: 12px; color: rgba(245,238,226,0.4);
   }
 
-  /* ========== RESPONSIVE ========== */
+  /* RESPONSIVE */
   @media (max-width: 880px) {
     .hero { padding: 110px 0 70px; }
     .hero-grid { grid-template-columns: 1fr; gap: 50px; }
     .hero-visual { max-width: 360px; margin: 0 auto; }
+    .recipes-grid { grid-template-columns: 1fr; gap: 20px; }
+    .subscribe-grid { grid-template-columns: 1fr; gap: 40px; }
     .how-grid { grid-template-columns: 1fr; gap: 18px; }
-    .offer { padding: 50px 32px; }
-    .offer-grid { grid-template-columns: 1fr; gap: 36px; }
     .footer-grid { grid-template-columns: 1fr; gap: 32px; }
     section { padding: 70px 0; }
     .trust-inner { gap: 24px; font-size: 12px; }
-    .form-card { padding: 32px 24px; }
+    .modal-header { padding: 36px 26px; }
+    .modal-header h2 { font-size: 24px; }
+    .modal-body { padding: 28px 24px; }
+    .survey-header, .subscribe-modal-header { padding: 28px 24px 20px; }
+    .survey-body, .subscribe-modal-body { padding: 24px; }
     .nav-cta { padding: 8px 16px; font-size: 12px; }
     .logo-mark { font-size: 18px; }
-    .nav-link-recetas { display: none; }
+    .hero-cta-group { flex-direction: column; align-items: stretch; }
+    .hero-cta-group .btn-primary, .hero-cta-group .btn-secondary { width: 100%; justify-content: center; }
   }
   @media (max-width: 480px) {
     .channel-group { grid-template-columns: 1fr; }
-    .offer { padding: 38px 22px; }
-    .offer-card { padding: 28px 22px; }
+    .subscribe-card { padding: 28px 22px; }
   }
 </style>
 </head>
@@ -945,10 +1015,7 @@
       <span class="logo-emblem">M</span>
       <span>MANZAKI</span>
     </a>
-    <div style="display:flex; align-items:center; gap:24px;">
-      <a href="#recetas" style="text-decoration:none; color:var(--cocoa); font-size:13px; font-weight:500; letter-spacing:0.02em;" class="nav-link-recetas">Recetas gratis</a>
-      <a href="#suscribirse" class="nav-cta">Apuntarme gratis</a>
-    </div>
+    <button class="nav-cta" onclick="openSubscribeModal()">Suscribirme</button>
   </div>
 </nav>
 
@@ -961,33 +1028,42 @@
           <span class="hero-tag-dot"></span>
           Club Manzaki · Lanzamiento próximo
         </div>
-        <h1>Una receta nueva, cada <em>sábado</em>, en tu cocina.</h1>
-        <p class="hero-lede">Churros rellenos, galletas decoradas, postres familiares. Recetas exclusivas creadas por nuestro equipo y enviadas directamente a tu WhatsApp o email cada fin de semana.</p>
+        <h1>Recetas gratis y <em>personalizadas</em> en tu cocina.</h1>
+        <p class="hero-lede">Empieza hoy con 3 recetas gratuitas que puedes probar ahora mismo. Y cuando lancemos el Club, recibe una receta personalizada cada sábado en tu WhatsApp o email.</p>
+
+        <div class="free-week-banner">
+          <div class="free-week-icon">7</div>
+          <div class="free-week-text">
+            <strong>1 semana gratis</strong> al lanzar — sin coste, sin compromiso
+          </div>
+        </div>
+
         <div class="hero-cta-group">
-          <a href="#suscribirse" class="btn-primary">
-            Apuntarme gratis
+          <button class="btn-primary" onclick="openSubscribeModal()">
+            Suscribirme al Club
             <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 6l6 6-6 6"/>
             </svg>
-          </a>
-          <span class="hero-meta">Sin compromiso. Cancela cuando quieras.</span>
+          </button>
+          <a href="#recetas" class="btn-secondary">Ver recetas gratis</a>
         </div>
+        <div class="hero-meta">Sin compromiso. Cancela cuando quieras.</div>
       </div>
       <div class="hero-visual">
         <div class="recipe-card-stack">
           <div class="card-behind"></div>
           <div class="card-behind-2"></div>
           <div class="recipe-card">
-            <div class="recipe-tag">Receta #024 · Sábado</div>
-            <h3 class="recipe-title">Churros rellenos de <em>chocolate</em> a la antigua</h3>
+            <div class="recipe-tag">Receta de la semana · Sábado</div>
+            <h3 class="recipe-title">Cupcakes de <em>vainilla</em> con buttercream</h3>
             <div class="recipe-meta">
-              <span class="recipe-meta-item"><span class="recipe-meta-dot"></span>30 minutos</span>
-              <span class="recipe-meta-item"><span class="recipe-meta-dot"></span>6 personas</span>
+              <span class="recipe-meta-item"><span class="recipe-meta-dot"></span>45 minutos</span>
+              <span class="recipe-meta-item"><span class="recipe-meta-dot"></span>12 unidades</span>
               <span class="recipe-meta-item"><span class="recipe-meta-dot"></span>Fácil</span>
             </div>
             <div class="recipe-ingredients">
               <div class="recipe-ingredients-title">Ingredientes</div>
-              250g harina · 250ml agua · una pizca de sal · 200g chocolate negro · 100ml nata · azúcar al gusto · canela
+              200g harina · 200g azúcar · 3 huevos · 100g mantequilla · 120ml leche · 1 cdta vainilla · 200g azúcar glas · colorante
             </div>
           </div>
         </div>
@@ -1004,218 +1080,141 @@
         <rect x="3" y="3" width="18" height="18" rx="2"/>
         <path d="M9 11l3 3 5-6"/>
       </svg>
-      Recetas probadas por nuestro equipo
+      Recetas probadas
     </div>
     <div class="trust-item">
       <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="9"/>
         <path d="M12 7v5l3 2"/>
       </svg>
-      Una nueva cada sábado
+      Personalizadas
     </div>
     <div class="trust-item">
       <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
         <path d="M9 12l2 2 4-4"/>
       </svg>
-      Cancela cuando quieras
+      1 semana gratis
     </div>
     <div class="trust-item">
       <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M3 7l9 6 9-6M3 7v10l9 6 9-6V7M3 7l9-6 9 6"/>
       </svg>
-      Sin spam, sin anuncios
+      Sin spam ni anuncios
     </div>
   </div>
 </div>
-
-<!-- HOW IT WORKS -->
-<section>
-  <div class="wrap">
-    <div class="section-tag">Cómo funciona</div>
-    <h2 class="section-title">Apúntate hoy, <em>cocina el sábado</em>.</h2>
-    <p class="section-lede">Estamos preparando el Club. Apúntate ahora y serás de los primeros en recibirlo cuando esté listo — con precio fundador para siempre.</p>
-
-    <div class="how-grid">
-      <div class="how-card">
-        <div class="how-step">01</div>
-        <h3>Apúntate</h3>
-        <p>Déjanos tu email y, si quieres, tu WhatsApp. Sin pagar nada, sin compromiso. Solo nos das tu interés.</p>
-      </div>
-      <div class="how-card">
-        <div class="how-step">02</div>
-        <h3>Te avisamos</h3>
-        <p>Cuando el Club esté listo, te enviamos un email. Tú decides entonces si quieres entrar al precio fundador.</p>
-      </div>
-      <div class="how-card">
-        <div class="how-step">03</div>
-        <h3>Cocina cada sábado</h3>
-        <p>Recibe una receta exclusiva cada sábado por la mañana. Lista para preparar con la familia ese mismo día.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- OFFER -->
-<section style="padding: 30px 0;">
-  <div class="wrap">
-    <div class="offer">
-      <div class="offer-grid">
-        <div>
-          <div class="section-tag" style="color: var(--gold-bright);">Precio fundador</div>
-          <h2>Los primeros 100 inscritos pagarán <em>0,99€/mes</em> para siempre.</h2>
-          <p class="offer-text">Cuando lancemos el Club, el precio normal será de 2,99€/mes. Pero si te apuntas ahora a la lista de espera, mantienes el precio fundador de 0,99€/mes mientras seas miembro. Una receta exclusiva cada sábado, por menos del precio de un café al mes.</p>
-        </div>
-        <div class="offer-card">
-          <div class="offer-card-tag">Precio Fundador</div>
-          <div class="offer-price">
-            <span class="currency">€</span>0,99<span class="period">/mes</span>
-          </div>
-          <div class="offer-strike">Después: 2,99€/mes</div>
-          <ul class="offer-features">
-            <li>
-              <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
-              Una receta exclusiva cada sábado
-            </li>
-            <li>
-              <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
-              Por WhatsApp o email — tú eliges
-            </li>
-            <li>
-              <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
-              Acceso al recetario completo
-            </li>
-            <li>
-              <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
-              Cancela cuando quieras
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- RECETAS GRATUITAS -->
 <section class="recipes-section" id="recetas">
   <div class="wrap">
     <div class="recipes-head">
       <div class="section-tag">Recetas gratuitas</div>
-      <h2 class="section-title">Empieza a cocinar <em>hoy mismo</em>.</h2>
-      <p class="section-lede">Te dejamos tres recetas para que pruebes el sabor del Club Manzaki. Una totalmente abierta — las otras dos las desbloqueas al apuntarte gratis.</p>
+      <h2 class="section-title">Empieza a cocinar <em>ahora mismo</em>.</h2>
+      <p class="section-lede">Tres recetas para que pruebes la experiencia Manzaki. Ayúdanos con tu opinión sobre la churrera y desbloquea las tres recetas al instante. Sin email, sin compromiso.</p>
     </div>
 
-    <div class="recipes-grid">
+    <div class="recipes-grid" id="recipes-grid">
 
-      <!-- RECETA 1 - GRATIS COMPLETA -->
-      <article class="recipe-tile">
-        <div class="recipe-illu">
-          <span class="recipe-illu-tag free">Gratis · Abierta</span>
+      <!-- CHURROS -->
+      <article class="recipe-tile locked" data-recipe="churros">
+        <div class="recipe-illu churros">
+          <span class="recipe-illu-tag feedback">Tu opinión la desbloquea</span>
+          <div class="lock-symbol">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="11" width="16" height="10" rx="2"/>
+              <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            </svg>
+          </div>
           <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Plato -->
             <ellipse cx="100" cy="155" rx="78" ry="14" fill="#1F140C" opacity="0.4"/>
             <ellipse cx="100" cy="148" rx="78" ry="12" fill="#F5EEE2"/>
-            <!-- Churros con estrias -->
-            <g stroke="#C8973F" stroke-width="2.5" stroke-linecap="round">
-              <path d="M40 145 Q50 80 70 50" stroke-width="14" stroke="#B5894A"/>
-              <path d="M44 142 Q54 78 72 52" stroke="#8B5A2B" stroke-width="1.5"/>
-              <path d="M37 138 Q47 74 68 48" stroke="#8B5A2B" stroke-width="1.5"/>
-            </g>
-            <g stroke="#C8973F" stroke-width="2.5" stroke-linecap="round">
-              <path d="M75 148 Q85 75 110 45" stroke-width="14" stroke="#B5894A"/>
-              <path d="M79 145 Q89 73 112 47" stroke="#8B5A2B" stroke-width="1.5"/>
-              <path d="M72 142 Q82 70 107 43" stroke="#8B5A2B" stroke-width="1.5"/>
-            </g>
-            <g stroke="#C8973F" stroke-width="2.5" stroke-linecap="round">
-              <path d="M115 148 Q125 80 150 55" stroke-width="14" stroke="#B5894A"/>
-              <path d="M119 145 Q129 78 152 57" stroke="#8B5A2B" stroke-width="1.5"/>
-              <path d="M112 142 Q122 75 147 52" stroke="#8B5A2B" stroke-width="1.5"/>
-            </g>
-            <!-- Azucar -->
+            <g><path d="M40 145 Q50 80 70 50" stroke="#B5894A" stroke-width="14" stroke-linecap="round" fill="none"/></g>
+            <g><path d="M75 148 Q85 75 110 45" stroke="#B5894A" stroke-width="14" stroke-linecap="round" fill="none"/></g>
+            <g><path d="M115 148 Q125 80 150 55" stroke="#B5894A" stroke-width="14" stroke-linecap="round" fill="none"/></g>
             <circle cx="65" cy="105" r="1.5" fill="#F5EEE2"/>
             <circle cx="95" cy="95" r="1.5" fill="#F5EEE2"/>
             <circle cx="130" cy="110" r="1.5" fill="#F5EEE2"/>
-            <circle cx="80" cy="70" r="1" fill="#F5EEE2"/>
-            <circle cx="120" cy="85" r="1" fill="#F5EEE2"/>
           </svg>
         </div>
         <div class="recipe-tile-body">
           <h3>Churros <em>tradicionales</em> caseros</h3>
           <div class="recipe-tile-meta">
-            <span>25 min</span>
-            <span>6 personas</span>
-            <span>Fácil</span>
+            <span>25 min</span><span>6 personas</span><span>Fácil</span>
           </div>
           <p class="recipe-tile-preview">La receta clásica española, transmitida de generación en generación. Crujientes por fuera, tiernos por dentro, perfectos para el desayuno del domingo.</p>
-          <button class="recipe-tile-cta" onclick="openRecipe('tradicionales')">
-            Ver receta completa
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <button class="recipe-tile-cta" onclick="openSurvey('churros')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            Desbloquear con mi opinión
           </button>
         </div>
       </article>
 
-      <!-- RECETA 2 - BLOQUEADA -->
-      <article class="recipe-tile locked">
-        <div class="recipe-illu var-2">
-          <span class="recipe-illu-tag locked">🔒 Bloqueada</span>
+      <!-- CUPCAKES -->
+      <article class="recipe-tile locked" data-recipe="cupcakes">
+        <div class="recipe-illu cupcakes">
+          <span class="recipe-illu-tag feedback">Tu opinión la desbloquea</span>
+          <div class="lock-symbol">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="11" width="16" height="10" rx="2"/>
+              <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            </svg>
+          </div>
           <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Plato -->
-            <ellipse cx="100" cy="155" rx="78" ry="14" fill="#1F140C" opacity="0.5"/>
-            <ellipse cx="100" cy="148" rx="78" ry="12" fill="#F5EEE2"/>
-            <!-- Churros rellenos -->
-            <g>
-              <ellipse cx="65" cy="100" rx="14" ry="48" fill="#B5894A" transform="rotate(-15 65 100)"/>
-              <ellipse cx="65" cy="100" rx="6" ry="42" fill="#3D2817" transform="rotate(-15 65 100)"/>
-              <path d="M52 60 Q60 50 70 52" stroke="#8B5A2B" stroke-width="1.5" fill="none"/>
-            </g>
-            <g>
-              <ellipse cx="100" cy="95" rx="14" ry="48" fill="#B5894A"/>
-              <ellipse cx="100" cy="95" rx="6" ry="42" fill="#3D2817"/>
-              <!-- Chorro de chocolate -->
-              <ellipse cx="100" cy="50" rx="8" ry="4" fill="#1F140C"/>
-              <path d="M96 50 Q98 56 100 54 Q102 58 104 50" fill="#1F140C"/>
-            </g>
-            <g>
-              <ellipse cx="135" cy="100" rx="14" ry="48" fill="#B5894A" transform="rotate(15 135 100)"/>
-              <ellipse cx="135" cy="100" rx="6" ry="42" fill="#3D2817" transform="rotate(15 135 100)"/>
-            </g>
-            <!-- Goteo chocolate -->
-            <circle cx="85" cy="115" r="3" fill="#3D2817"/>
-            <circle cx="115" cy="120" r="2.5" fill="#3D2817"/>
-            <circle cx="70" cy="135" r="2" fill="#3D2817"/>
+            <ellipse cx="100" cy="170" rx="80" ry="10" fill="#1F140C" opacity="0.4"/>
+            <!-- Cupcake base -->
+            <path d="M65 150 L75 100 L125 100 L135 150 Z" fill="#3D2817"/>
+            <path d="M65 150 L75 100 L125 100 L135 150 Z" fill="none" stroke="#1F140C" stroke-width="0.5"/>
+            <!-- Lineas wrapper -->
+            <line x1="80" y1="105" x2="85" y2="145" stroke="#1F140C" stroke-width="0.5"/>
+            <line x1="95" y1="100" x2="98" y2="148" stroke="#1F140C" stroke-width="0.5"/>
+            <line x1="110" y1="100" x2="113" y2="148" stroke="#1F140C" stroke-width="0.5"/>
+            <line x1="120" y1="105" x2="122" y2="145" stroke="#1F140C" stroke-width="0.5"/>
+            <!-- Buttercream remolino -->
+            <ellipse cx="100" cy="95" rx="35" ry="12" fill="#F5EEE2"/>
+            <ellipse cx="100" cy="80" rx="30" ry="10" fill="#F5EEE2"/>
+            <ellipse cx="100" cy="68" rx="22" ry="8" fill="#F5EEE2"/>
+            <ellipse cx="100" cy="58" rx="14" ry="6" fill="#F5EEE2"/>
+            <ellipse cx="100" cy="52" rx="6" ry="4" fill="#F5EEE2"/>
+            <!-- Sprinkles -->
+            <circle cx="88" cy="85" r="2" fill="#D4AF37"/>
+            <circle cx="110" cy="78" r="2" fill="#B5483D"/>
+            <circle cx="100" cy="92" r="2" fill="#C8973F"/>
+            <circle cx="95" cy="70" r="2" fill="#D4AF37"/>
+            <circle cx="108" cy="65" r="2" fill="#B5483D"/>
           </svg>
         </div>
         <div class="recipe-tile-body">
-          <h3>Churros rellenos de <em>chocolate</em></h3>
+          <h3>Cupcakes de <em>vainilla</em></h3>
           <div class="recipe-tile-meta">
-            <span>40 min</span>
-            <span>4 personas</span>
-            <span>Intermedio</span>
+            <span>45 min</span><span>12 unidades</span><span>Fácil</span>
           </div>
-          <p class="recipe-tile-preview">El truco para que el chocolate quede dentro y no se escape. La técnica de la boquilla inyectora explicada paso a paso para conseguir el relleno perfecto.</p>
-          <button class="recipe-tile-cta" onclick="scrollToForm()">
+          <p class="recipe-tile-preview">Esponjosos, dulces y decorados con buttercream casero. Usa la manga pastelera y las boquillas decorativas de tu kit para crear remolinos perfectos.</p>
+          <button class="recipe-tile-cta" onclick="openSurvey('cupcakes')">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-            Desbloquear gratis
+            Desbloquear con mi opinión
           </button>
         </div>
       </article>
 
-      <!-- RECETA 3 - BLOQUEADA -->
-      <article class="recipe-tile locked">
-        <div class="recipe-illu var-3">
-          <span class="recipe-illu-tag locked">🔒 Bloqueada</span>
+      <!-- GALLETAS -->
+      <article class="recipe-tile locked" data-recipe="galletas">
+        <div class="recipe-illu galletas">
+          <span class="recipe-illu-tag feedback">Tu opinión la desbloquea</span>
+          <div class="lock-symbol">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="11" width="16" height="10" rx="2"/>
+              <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            </svg>
+          </div>
           <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Plato -->
             <ellipse cx="100" cy="160" rx="80" ry="14" fill="#3D2817" opacity="0.4"/>
             <ellipse cx="100" cy="153" rx="80" ry="12" fill="#F5EEE2"/>
-            <!-- Galletas decoradas -->
             <g>
-              <!-- Galleta 1 estrella -->
               <circle cx="55" cy="120" r="22" fill="#C8973F"/>
               <path d="M55 105 L58 116 L70 116 L60 123 L64 134 L55 127 L46 134 L50 123 L40 116 L52 116 Z" fill="#F5EEE2" opacity="0.85"/>
             </g>
             <g>
-              <!-- Galleta 2 flor -->
               <circle cx="100" cy="100" r="24" fill="#B5894A"/>
               <circle cx="100" cy="88" r="5" fill="#F5EEE2"/>
               <circle cx="112" cy="100" r="5" fill="#F5EEE2"/>
@@ -1224,7 +1223,6 @@
               <circle cx="100" cy="100" r="4" fill="#D4AF37"/>
             </g>
             <g>
-              <!-- Galleta 3 rayas -->
               <circle cx="145" cy="125" r="22" fill="#C8973F"/>
               <line x1="130" y1="115" x2="160" y2="135" stroke="#F5EEE2" stroke-width="3" stroke-linecap="round"/>
               <line x1="128" y1="125" x2="162" y2="125" stroke="#F5EEE2" stroke-width="3" stroke-linecap="round"/>
@@ -1235,14 +1233,12 @@
         <div class="recipe-tile-body">
           <h3>Galletas <em>decoradas</em> para niños</h3>
           <div class="recipe-tile-meta">
-            <span>35 min</span>
-            <span>20 galletas</span>
-            <span>Fácil</span>
+            <span>35 min</span><span>20 galletas</span><span>Fácil</span>
           </div>
-          <p class="recipe-tile-preview">Recetas para hacer con peques en la cocina. Aprovecha los discos decorativos del kit para crear formas divertidas. Incluye glaseado real de pastelero.</p>
-          <button class="recipe-tile-cta" onclick="scrollToForm()">
+          <p class="recipe-tile-preview">Aprovecha los discos decorativos del kit para crear formas divertidas que harán las delicias de los más pequeños. Incluye glaseado real de pastelero.</p>
+          <button class="recipe-tile-cta" onclick="openSurvey('galletas')">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-            Desbloquear gratis
+            Desbloquear con mi opinión
           </button>
         </div>
       </article>
@@ -1251,98 +1247,77 @@
   </div>
 </section>
 
-<!-- MODAL DE RECETA -->
-<div class="modal-backdrop" id="recipe-modal" onclick="closeRecipeIfBackdrop(event)">
-  <div class="modal" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeRecipe()" aria-label="Cerrar">×</button>
-    <div class="modal-header">
-      <div class="modal-header-tag">Receta gratuita · Manzaki</div>
-      <h2>Churros <em>tradicionales</em> caseros</h2>
-      <div class="modal-meta">
-        <span>25 minutos</span>
-        <span>6 personas</span>
-        <span>Dificultad fácil</span>
+<!-- SUSCRIPCIÓN -->
+<section class="subscribe-section" id="suscribirse">
+  <div class="wrap">
+    <div class="subscribe-grid">
+      <div>
+        <div class="section-tag">El Club Manzaki</div>
+        <h2 class="section-title">Una receta nueva, <em>cada sábado</em>, en tu cocina.</h2>
+        <p class="subscribe-text">Estamos preparando un sistema que te enviará cada sábado una receta personalizada según tus preferencias — directamente a tu WhatsApp o email. Apúntate ahora a la lista de espera y te avisaremos cuando esté listo.</p>
+        <p class="subscribe-text" style="color: var(--gold-bright); font-weight: 500;">Los primeros inscritos disfrutarán de <strong>1 semana gratis</strong> al lanzar — y precio fundador para siempre.</p>
       </div>
-    </div>
-    <div class="modal-body">
-      <div class="modal-section">
-        <h3>Ingredientes</h3>
-        <ul class="ingredients-list">
-          <li><span>Harina de trigo</span><span class="ingredient-amount">250 g</span></li>
-          <li><span>Agua</span><span class="ingredient-amount">250 ml</span></li>
-          <li><span>Sal fina</span><span class="ingredient-amount">1 pizca</span></li>
-          <li><span>Aceite de girasol (para freír)</span><span class="ingredient-amount">1 litro</span></li>
-          <li><span>Azúcar blanco</span><span class="ingredient-amount">100 g</span></li>
-          <li><span>Canela molida (opcional)</span><span class="ingredient-amount">1 cdta</span></li>
+      <div class="subscribe-card">
+        <div class="subscribe-card-tag">Precio fundador</div>
+        <div class="subscribe-price">
+          <span class="currency">€</span>0,99<span class="period">/mes</span>
+        </div>
+        <div class="subscribe-strike">Después: 2,99€/mes</div>
+        <ul class="subscribe-features">
+          <li>
+            <svg class="check-icon highlight" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+            <strong style="color: var(--gold-bright);">1 semana gratis al lanzar</strong>
+          </li>
+          <li>
+            <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+            Una receta exclusiva cada sábado
+          </li>
+          <li>
+            <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+            Personalizadas según tus preferencias
+          </li>
+          <li>
+            <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+            Por WhatsApp o email — tú eliges
+          </li>
+          <li>
+            <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+            Cancela cuando quieras
+          </li>
         </ul>
-      </div>
-
-      <div class="modal-section">
-        <h3>Pasos</h3>
-        <ol class="steps-list">
-          <li>Pon el agua con la sal en un cazo y lleva a ebullición a fuego medio. En cuanto rompa a hervir, retira del fuego.</li>
-          <li>Añade toda la harina de golpe y remueve enérgicamente con una cuchara de madera hasta que la masa se despegue de las paredes del cazo. Es importante que quede una bola homogénea sin grumos.</li>
-          <li>Deja templar la masa unos 5 minutos. Mientras tanto, calienta el aceite en una sartén honda o freidora a 180°C — no más, o los churros se quemarán por fuera sin cocinarse por dentro.</li>
-          <li>Introduce la masa en tu churrera Manzaki. Coloca el disco con forma de estrella (el clásico) y presiona con firmeza.</li>
-          <li>Presiona directamente sobre el aceite caliente, cortando los churros con unas tijeras al largo que prefieras (8-10 cm es lo tradicional).</li>
-          <li>Fríe en tandas pequeñas durante 2-3 minutos, dándoles la vuelta para que se doren uniformemente por todos lados.</li>
-          <li>Saca los churros con una espumadera y déjalos escurrir sobre papel absorbente unos segundos.</li>
-          <li>Reboza inmediatamente en azúcar (o mezcla de azúcar y canela) mientras estén calientes. Sirve al momento, con chocolate caliente o café.</li>
-        </ol>
-      </div>
-
-      <div class="tip-box">
-        <div class="tip-box-title">Truco del chef Manzaki</div>
-        <p class="tip-box-text">El secreto está en la temperatura del aceite. Si humea, está demasiado caliente. Para comprobarlo sin termómetro: echa una migaja de pan. Si se dora en 10 segundos, está a punto.</p>
+        <button class="subscribe-btn" onclick="openSubscribeModal()">
+          Apuntarme al Club
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- FORM -->
-<section class="form-section" id="suscribirse">
-  <div class="wrap form-wrap">
-    <div class="section-tag">Lista de espera</div>
-    <h2 class="section-title">Apúntate <em>gratis</em> ahora.</h2>
-    <p class="section-lede" style="margin: 0 auto;">Te enviamos una receta de bienvenida al instante y te avisamos cuando el Club esté listo.</p>
+<!-- HOW IT WORKS -->
+<section>
+  <div class="wrap">
+    <div class="section-tag">Cómo funciona</div>
+    <h2 class="section-title">Apúntate hoy, <em>cocina cada sábado</em>.</h2>
+    <p class="section-lede">El Club está en preparación. Apuntarse ahora te garantiza acceso prioritario y 1 semana gratis cuando lancemos.</p>
 
-    <form class="form-card" id="club-form" onsubmit="handleSubmit(event)">
-      <div class="form-group">
-        <label class="form-label" for="name">Nombre</label>
-        <input class="form-input" type="text" id="name" name="name" required placeholder="Cómo te llamas">
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-step">01</div>
+        <h3>Apúntate</h3>
+        <p>Déjanos tu nombre, email y, si quieres, tu WhatsApp. Sin pagar nada, sin compromiso. Solo nos das tu interés.</p>
       </div>
-      <div class="form-group">
-        <label class="form-label" for="email">Email</label>
-        <input class="form-input" type="email" id="email" name="email" required placeholder="tu@email.com">
+      <div class="how-card">
+        <div class="how-step">02</div>
+        <h3>Te avisamos</h3>
+        <p>Cuando el Club esté listo, te enviamos un email. Empezarás con 1 semana totalmente gratis para probarlo.</p>
       </div>
-      <div class="form-group">
-        <label class="form-label" for="whatsapp">WhatsApp <span class="form-label-optional">(opcional, con prefijo)</span></label>
-        <input class="form-input" type="tel" id="whatsapp" name="whatsapp" placeholder="+34 600 000 000">
+      <div class="how-card">
+        <div class="how-step">03</div>
+        <h3>Cocina cada sábado</h3>
+        <p>Recibe una receta personalizada cada sábado por la mañana, según tus preferencias y nivel de cocina.</p>
       </div>
-      <div class="form-group">
-        <label class="form-label">¿Por dónde quieres recibir las recetas?</label>
-        <div class="channel-group">
-          <div class="channel-option">
-            <input type="radio" name="channel" id="ch-email" value="email" checked>
-            <label for="ch-email">📧 Email</label>
-          </div>
-          <div class="channel-option">
-            <input type="radio" name="channel" id="ch-both" value="both">
-            <label for="ch-both">📧 + WhatsApp</label>
-          </div>
-        </div>
-      </div>
-      <button type="submit" class="form-submit">
-        Apuntarme al Club
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </button>
-      <p class="form-disclaimer">El Club está en preparación. Apuntarse no implica pago. Te avisaremos por email cuando esté listo y decidirás si te unes.</p>
-      <div class="form-status" id="form-status">
-        ✓ Apuntado. Revisa tu email — te llegará la receta de bienvenida en unos minutos.
-      </div>
-    </form>
+    </div>
   </div>
 </section>
 
@@ -1359,27 +1334,27 @@
       </details>
       <details class="faq-item">
         <summary class="faq-q">¿Tengo que pagar ahora?</summary>
-        <p class="faq-a">No. Apuntarse es totalmente gratuito y no te cobramos nada hoy. Cuando lancemos el Club, te enviaremos un email con un enlace para que tú decidas si quieres unirte al precio fundador de 0,99€/mes.</p>
+        <p class="faq-a">No. Apuntarse es totalmente gratuito y no te cobramos nada hoy. Cuando lancemos el Club, tendrás 1 semana gratis sin coste alguno. Después decides si quieres continuar al precio fundador de 0,99€/mes.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">¿Qué incluye la semana gratis?</summary>
+        <p class="faq-a">Recibirás tu primera receta personalizada al activarse tu prueba, totalmente gratis, sin tarjeta de crédito. Después de los 7 días, tú decides si quieres continuar con la suscripción.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">¿Cómo serán las recetas personalizadas?</summary>
+        <p class="faq-a">Cuando te apuntes, te preguntaremos algunas preferencias: nivel de cocina, alergias, gustos (clásico, gourmet, saludable, con niños). Cada sábado recibirás una receta adaptada a tu perfil.</p>
       </details>
       <details class="faq-item">
         <summary class="faq-q">¿Cómo recibiré las recetas?</summary>
-        <p class="faq-a">Cada sábado por la mañana, recibirás una receta nueva por el canal que hayas elegido — email solamente, o email + WhatsApp. Llega lista para usar, con ingredientes, pasos e imagen.</p>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-q">¿Qué tipo de recetas son?</summary>
-        <p class="faq-a">Recetas pensadas para hacer en casa con la familia. Churros, churros rellenos, galletas decoradas, cupcakes, profiteroles, postres tradicionales y algunas innovaciones de nuestro equipo. Adaptadas a tu nivel.</p>
+        <p class="faq-a">Cada sábado por la mañana por el canal que hayas elegido — email solamente, o email + WhatsApp. Llega lista para usar, con ingredientes, pasos e imagen.</p>
       </details>
       <details class="faq-item">
         <summary class="faq-q">¿Puedo cancelar cuando quiera?</summary>
-        <p class="faq-a">Sí, sin preguntas ni condiciones. Cancelas desde un enlace en cualquier email del Club, y dejarás de recibir las recetas y los cobros inmediatamente.</p>
+        <p class="faq-a">Sí, sin preguntas ni condiciones. Cancelas desde un enlace en cualquier email del Club y dejarás de recibir las recetas y los cobros inmediatamente.</p>
       </details>
       <details class="faq-item">
-        <summary class="faq-q">¿Y si me apunto pero al final no quiero entrar?</summary>
-        <p class="faq-a">Sin problema. Apuntarse hoy solo significa "quiero saber cuando lo lancéis". Cuando llegue el momento, decides tú. Si no quieres entrar, simplemente no aceptas y no pasa nada.</p>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-q">¿Estará en otros idiomas?</summary>
-        <p class="faq-a">De momento el Club es en español. Si funciona, lo lanzaremos en alemán, francés e inglés también — pero eso será más adelante.</p>
+        <summary class="faq-q">¿Por qué pedís opinión sobre la churrera?</summary>
+        <p class="faq-a">Tu opinión nos ayuda a mejorar el producto. Es totalmente privada — no se publica en ningún sitio. A cambio, desbloqueas las 3 recetas gratuitas al instante.</p>
       </details>
     </div>
   </div>
@@ -1396,8 +1371,7 @@
       <div class="footer-col">
         <h4>Club</h4>
         <a href="#suscribirse">Apuntarse</a>
-        <a href="#">Cómo funciona</a>
-        <a href="#">Precios</a>
+        <a href="#recetas">Recetas gratis</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>
@@ -1414,34 +1388,350 @@
   </div>
 </footer>
 
+<!-- ==================== MODAL: ENCUESTA ==================== -->
+<div class="modal-backdrop" id="survey-modal" onclick="closeIfBackdrop(event, 'survey-modal')">
+  <div class="modal survey-modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('survey-modal')" aria-label="Cerrar">×</button>
+
+    <div id="survey-form-view">
+      <div class="survey-header">
+        <div class="survey-header-tag">Tu opinión cuenta</div>
+        <h2>Cuéntanos qué te parece <em>Manzaki</em></h2>
+        <p>Ayúdanos con una opinión rápida y desbloquea las 3 recetas al instante. Sin email, totalmente anónimo.</p>
+      </div>
+      <div class="survey-body">
+        <div class="survey-q">
+          <label class="survey-q-label">¿Cómo valoras tu experiencia con la churrera?</label>
+          <div class="stars" id="stars">
+            <button type="button" class="star-btn" data-value="1" onclick="setStars(1)">★</button>
+            <button type="button" class="star-btn" data-value="2" onclick="setStars(2)">★</button>
+            <button type="button" class="star-btn" data-value="3" onclick="setStars(3)">★</button>
+            <button type="button" class="star-btn" data-value="4" onclick="setStars(4)">★</button>
+            <button type="button" class="star-btn" data-value="5" onclick="setStars(5)">★</button>
+          </div>
+        </div>
+
+        <div class="survey-q">
+          <label class="survey-q-label" for="liked">¿Qué te ha gustado más? <span style="color: rgba(26,20,16,0.4); font-weight: 400;">(opcional)</span></label>
+          <textarea class="survey-textarea" id="liked" placeholder="Lo que más te ha sorprendido..."></textarea>
+        </div>
+
+        <div class="survey-q">
+          <label class="survey-q-label" for="improve">¿Qué crees que deberíamos mejorar? <span style="color: rgba(26,20,16,0.4); font-weight: 400;">(opcional)</span></label>
+          <textarea class="survey-textarea" id="improve" placeholder="Tu opinión sincera nos ayuda mucho..."></textarea>
+        </div>
+
+        <button class="survey-submit" id="survey-submit-btn" onclick="submitSurvey()" disabled>
+          Desbloquear las 3 recetas
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="survey-note">Tu opinión es 100% privada — solo nos ayuda a mejorar el producto.</p>
+      </div>
+    </div>
+
+    <div class="confirmation" id="survey-confirmation">
+      <div class="confirmation-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12l5 5L20 7"/>
+        </svg>
+      </div>
+      <h3>¡Gracias por tu opinión!</h3>
+      <p>Las 3 recetas están desbloqueadas. Ya puedes verlas todas haciendo clic en cualquiera de ellas.</p>
+      <button class="form-submit" style="background: var(--cocoa); color: var(--cream); margin-top: 20px;" onclick="closeModalAndShowRecipes()">
+        Ver las recetas ahora
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MODAL: RECETA ==================== -->
+<div class="modal-backdrop" id="recipe-modal" onclick="closeIfBackdrop(event, 'recipe-modal')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('recipe-modal')" aria-label="Cerrar">×</button>
+    <div class="modal-header" id="recipe-modal-header">
+      <div class="modal-header-tag">Receta gratuita · Manzaki</div>
+      <h2 id="recipe-modal-title">Receta</h2>
+      <div class="modal-meta" id="recipe-modal-meta"></div>
+    </div>
+    <div class="modal-body" id="recipe-modal-body"></div>
+  </div>
+</div>
+
+<!-- ==================== MODAL: SUSCRIPCIÓN ==================== -->
+<div class="modal-backdrop" id="subscribe-modal" onclick="closeIfBackdrop(event, 'subscribe-modal')">
+  <div class="modal subscribe-modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('subscribe-modal')" aria-label="Cerrar">×</button>
+
+    <div id="subscribe-form-view">
+      <div class="subscribe-modal-header">
+        <div class="subscribe-modal-header-tag">Lista de espera · Club Manzaki</div>
+        <h2>Apúntate <em>gratis</em></h2>
+        <p>Sé de los primeros en recibir el Club cuando esté listo. Te avisaremos por email.</p>
+        <div class="free-week-badge">
+          ✦ 1 semana gratis al lanzar
+        </div>
+      </div>
+      <div class="subscribe-modal-body">
+        <form id="subscribe-form" onsubmit="submitSubscribe(event)">
+          <div class="form-group">
+            <label class="form-label" for="sub-name">Nombre</label>
+            <input class="form-input" type="text" id="sub-name" name="name" required placeholder="Cómo te llamas">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="sub-email">Email</label>
+            <input class="form-input" type="email" id="sub-email" name="email" required placeholder="tu@email.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="sub-wa">WhatsApp <span class="form-label-opt">(opcional, con prefijo)</span></label>
+            <input class="form-input" type="tel" id="sub-wa" name="whatsapp" placeholder="+34 600 000 000">
+          </div>
+          <div class="form-group">
+            <label class="form-label">¿Por dónde quieres recibir las recetas?</label>
+            <div class="channel-group">
+              <div class="channel-option">
+                <input type="radio" name="channel" id="ch-email" value="email" checked>
+                <label for="ch-email">📧 Email</label>
+              </div>
+              <div class="channel-option">
+                <input type="radio" name="channel" id="ch-both" value="both">
+                <label for="ch-both">📧 + WhatsApp</label>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="form-submit">
+            Apuntarme al Club
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="form-disclaimer">El Club está en preparación. Apuntarse no implica pago. Te avisaremos por email cuando esté listo y empezarás con 1 semana gratis sin coste.</p>
+        </form>
+      </div>
+    </div>
+
+    <div class="confirmation" id="subscribe-confirmation">
+      <div class="confirmation-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12l5 5L20 7"/>
+        </svg>
+      </div>
+      <h3>¡Estás apuntado!</h3>
+      <p>Estamos terminando de preparar el sistema. Cuando esté listo, te enviaremos un email para que actives tu semana gratuita.</p>
+      <div class="free-week-badge">
+        ✦ Tienes 1 semana gratis reservada
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
-  function openRecipe(slug) {
-    const modal = document.getElementById('recipe-modal');
-    modal.classList.add('active');
+  // ============ ESTADO ============
+  let unlocked = false;
+  let starsValue = 0;
+  let activeRecipe = null;
+
+  // Cargar estado guardado
+  if (localStorage.getItem('manzaki_unlocked') === 'true') {
+    unlocked = true;
+    document.querySelectorAll('.recipe-tile').forEach(t => {
+      t.classList.remove('locked');
+      const tag = t.querySelector('.recipe-illu-tag');
+      if (tag) { tag.textContent = 'Gratis'; tag.classList.remove('feedback'); tag.classList.add('unlocked'); }
+      const cta = t.querySelector('.recipe-tile-cta');
+      const slug = t.dataset.recipe;
+      cta.innerHTML = `Ver receta completa <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+      cta.setAttribute('onclick', `openRecipe('${slug}')`);
+    });
+  }
+
+  // ============ MODALES GENERAL ============
+  function openModal(id) {
+    document.getElementById(id).classList.add('active');
     document.body.style.overflow = 'hidden';
   }
-  function closeRecipe() {
-    const modal = document.getElementById('recipe-modal');
-    modal.classList.remove('active');
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
     document.body.style.overflow = '';
   }
-  function closeRecipeIfBackdrop(e) {
-    if (e.target.id === 'recipe-modal') closeRecipe();
+  function closeIfBackdrop(e, id) {
+    if (e.target.id === id) closeModal(id);
   }
-  function scrollToForm() {
-    document.getElementById('suscribirse').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-  // ESC cierra el modal
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeRecipe();
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      ['survey-modal','recipe-modal','subscribe-modal'].forEach(id => closeModal(id));
+    }
   });
 
-  function handleSubmit(e) {
+  // ============ ENCUESTA ============
+  function openSurvey(recipeSlug) {
+    if (unlocked) { openRecipe(recipeSlug); return; }
+    activeRecipe = recipeSlug;
+    document.getElementById('survey-form-view').style.display = 'block';
+    document.getElementById('survey-confirmation').classList.remove('active');
+    openModal('survey-modal');
+  }
+  function setStars(n) {
+    starsValue = n;
+    document.querySelectorAll('#stars .star-btn').forEach(b => {
+      b.classList.toggle('active', parseInt(b.dataset.value) <= n);
+    });
+    document.getElementById('survey-submit-btn').disabled = (n === 0);
+  }
+  function submitSurvey() {
+    if (starsValue === 0) return;
+    const data = {
+      rating: starsValue,
+      liked: document.getElementById('liked').value,
+      improve: document.getElementById('improve').value,
+      timestamp: new Date().toISOString()
+    };
+    const existing = JSON.parse(localStorage.getItem('manzaki_feedback') || '[]');
+    existing.push(data);
+    localStorage.setItem('manzaki_feedback', JSON.stringify(existing));
+    localStorage.setItem('manzaki_unlocked', 'true');
+    unlocked = true;
+
+    // Desbloquear visualmente todas las tarjetas
+    document.querySelectorAll('.recipe-tile').forEach(t => {
+      t.classList.remove('locked');
+      const tag = t.querySelector('.recipe-illu-tag');
+      if (tag) { tag.textContent = 'Gratis'; tag.classList.remove('feedback'); tag.classList.add('unlocked'); }
+      const cta = t.querySelector('.recipe-tile-cta');
+      const slug = t.dataset.recipe;
+      cta.innerHTML = `Ver receta completa <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+      cta.setAttribute('onclick', `openRecipe('${slug}')`);
+    });
+
+    document.getElementById('survey-form-view').style.display = 'none';
+    document.getElementById('survey-confirmation').classList.add('active');
+  }
+  function closeModalAndShowRecipes() {
+    closeModal('survey-modal');
+    if (activeRecipe) {
+      setTimeout(() => openRecipe(activeRecipe), 350);
+    }
+  }
+
+  // ============ RECETAS ============
+  const recipes = {
+    churros: {
+      header: 'churros',
+      title: 'Churros <em>tradicionales</em> caseros',
+      meta: ['25 minutos', '6 personas', 'Dificultad fácil'],
+      ingredients: [
+        ['Harina de trigo', '250 g'],
+        ['Agua', '250 ml'],
+        ['Sal fina', '1 pizca'],
+        ['Aceite de girasol (para freír)', '1 litro'],
+        ['Azúcar blanco', '100 g'],
+        ['Canela molida (opcional)', '1 cdta']
+      ],
+      steps: [
+        'Pon el agua con la sal en un cazo y lleva a ebullición a fuego medio. En cuanto rompa a hervir, retira del fuego.',
+        'Añade toda la harina de golpe y remueve enérgicamente con cuchara de madera hasta que la masa se despegue de las paredes. Tiene que quedar una bola homogénea sin grumos.',
+        'Deja templar la masa unos 5 minutos. Mientras, calienta el aceite en una sartén honda a 180°C — no más, o se queman por fuera sin cocinarse dentro.',
+        'Introduce la masa en tu churrera Manzaki y coloca el disco con forma de estrella (el clásico).',
+        'Presiona directamente sobre el aceite caliente, cortando los churros con tijeras al largo que prefieras (8-10 cm es lo tradicional).',
+        'Fríe en tandas pequeñas durante 2-3 minutos, dándoles la vuelta para que se doren uniformemente.',
+        'Saca los churros con una espumadera y déjalos escurrir sobre papel absorbente unos segundos.',
+        'Reboza inmediatamente en azúcar (o azúcar con canela) mientras estén calientes. Sirve al momento, con chocolate caliente o café.'
+      ],
+      tip: 'El secreto está en la temperatura del aceite. Si humea, está demasiado caliente. Para comprobarlo sin termómetro: echa una migaja de pan. Si se dora en 10 segundos, está a punto.'
+    },
+    cupcakes: {
+      header: 'cupcakes',
+      title: 'Cupcakes de <em>vainilla</em> con buttercream',
+      meta: ['45 minutos', '12 unidades', 'Dificultad fácil'],
+      ingredients: [
+        ['Harina de repostería', '200 g'],
+        ['Azúcar blanco', '200 g'],
+        ['Huevos (tamaño M)', '3 unidades'],
+        ['Mantequilla pomada', '100 g'],
+        ['Leche entera', '120 ml'],
+        ['Extracto de vainilla', '1 cdta'],
+        ['Levadura química', '1 cdta'],
+        ['Mantequilla (buttercream)', '150 g'],
+        ['Azúcar glas', '200 g'],
+        ['Colorante alimentario (opcional)', 'al gusto']
+      ],
+      steps: [
+        'Precalienta el horno a 180°C y coloca cápsulas de papel en un molde para cupcakes.',
+        'Bate la mantequilla pomada con el azúcar hasta que blanquee y quede esponjosa, unos 4 minutos.',
+        'Añade los huevos uno a uno, integrando bien cada uno antes de añadir el siguiente. Incorpora la vainilla.',
+        'Mezcla la harina con la levadura. Añade a la masa en tres veces, alternando con la leche, mezclando lo justo para integrar.',
+        'Reparte la masa en las cápsulas llenando 2/3 de su capacidad. Hornea 18-20 minutos hasta que un palillo salga limpio.',
+        'Deja enfriar completamente sobre una rejilla antes de decorar. Esto es importante — si decoras en caliente, el buttercream se derrite.',
+        'Para el buttercream: bate la mantequilla a temperatura ambiente con el azúcar glas hasta que quede cremoso y pálido. Añade colorante si quieres.',
+        'Coloca el buttercream en tu manga pastelera Manzaki con una boquilla estrella. Decora con movimientos circulares desde fuera hacia el centro.'
+      ],
+      tip: 'Para que los cupcakes salgan iguales, usa una cuchara para helado del mismo tamaño al rellenar las cápsulas. Y nunca abras el horno durante los primeros 15 minutos de cocción.'
+    },
+    galletas: {
+      header: 'galletas',
+      title: 'Galletas <em>decoradas</em> para niños',
+      meta: ['35 minutos', '20 galletas', 'Dificultad fácil'],
+      ingredients: [
+        ['Harina de trigo', '300 g'],
+        ['Mantequilla fría', '150 g'],
+        ['Azúcar glas', '100 g'],
+        ['Huevo', '1 unidad'],
+        ['Extracto de vainilla', '1 cdta'],
+        ['Sal', '1 pizca'],
+        ['Azúcar glas (glaseado)', '200 g'],
+        ['Clara de huevo', '1 unidad'],
+        ['Colorantes alimentarios', 'al gusto']
+      ],
+      steps: [
+        'Mezcla la harina con la sal en un bol. Añade la mantequilla fría cortada en cubos y trabaja con las puntas de los dedos hasta obtener una textura arenosa.',
+        'Incorpora el azúcar glas, el huevo y la vainilla. Mezcla hasta formar una masa homogénea pero sin trabajarla en exceso.',
+        'Forma una bola, envuelve en film y deja reposar en la nevera al menos 30 minutos. Este reposo es crucial para que no se deformen al hornear.',
+        'Precalienta el horno a 180°C. Introduce la masa en tu churrera Manzaki con uno de los discos decorativos (estrella, flor, etc.).',
+        'Presiona la churrera sobre una bandeja con papel de hornear, separando bien cada galleta porque crecerán ligeramente.',
+        'Hornea 10-12 minutos hasta que los bordes empiecen a dorarse. El centro debe quedar todavía pálido — así quedan tiernas por dentro.',
+        'Deja enfriar las galletas completamente sobre rejilla antes de decorar. Para el glaseado, bate la clara con el azúcar glas hasta una textura espesa pero que caiga del cuchillo.',
+        'Divide el glaseado en boles y añade colorantes. Decora con mangas pasteleras pequeñas o palillos. Deja secar al aire 1-2 horas antes de guardar.'
+      ],
+      tip: 'Para galletas perfectamente decoradas con los peques, congela la masa estirada en formas durante 5 minutos antes de hornear. Así no pierden la forma del disco.'
+    }
+  };
+
+  function openRecipe(slug) {
+    const r = recipes[slug];
+    if (!r) return;
+    const header = document.getElementById('recipe-modal-header');
+    header.className = 'modal-header ' + r.header;
+    document.getElementById('recipe-modal-title').innerHTML = r.title;
+    document.getElementById('recipe-modal-meta').innerHTML = r.meta.map(m => `<span>${m}</span>`).join('');
+
+    const body = document.getElementById('recipe-modal-body');
+    body.innerHTML = `
+      <div class="modal-section">
+        <h3>Ingredientes</h3>
+        <ul class="ingredients-list">
+          ${r.ingredients.map(i => `<li><span>${i[0]}</span><span class="ingredient-amount">${i[1]}</span></li>`).join('')}
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Pasos</h3>
+        <ol class="steps-list">
+          ${r.steps.map(s => `<li>${s}</li>`).join('')}
+        </ol>
+      </div>
+      <div class="tip-box">
+        <div class="tip-box-title">Truco del chef Manzaki</div>
+        <p class="tip-box-text">${r.tip}</p>
+      </div>
+    `;
+    openModal('recipe-modal');
+  }
+
+  // ============ SUSCRIPCIÓN ============
+  function openSubscribeModal() {
+    document.getElementById('subscribe-form-view').style.display = 'block';
+    document.getElementById('subscribe-confirmation').classList.remove('active');
+    openModal('subscribe-modal');
+  }
+  function submitSubscribe(e) {
     e.preventDefault();
     const form = e.target;
-    const status = document.getElementById('form-status');
-
-    // Recopilar datos
     const data = {
       name: form.name.value,
       email: form.email.value,
@@ -1449,26 +1739,13 @@
       channel: form.querySelector('input[name="channel"]:checked').value,
       timestamp: new Date().toISOString()
     };
-
-    // TODO: aquí va la llamada al backend (Vercel function, Resend, Brevo, etc.)
-    // Por ahora simulamos el envío. Cuando despliegues en Vercel,
-    // sustituye esto por una llamada fetch() a tu endpoint.
-    console.log('Suscripción Club Manzaki:', data);
-
-    // Guardar en localStorage como fallback temporal
+    // TODO: aquí va la llamada al backend cuando conectes Brevo/Resend/Vercel
     const existing = JSON.parse(localStorage.getItem('manzaki_subscribers') || '[]');
     existing.push(data);
     localStorage.setItem('manzaki_subscribers', JSON.stringify(existing));
 
-    // Mostrar confirmación
-    status.classList.add('active');
-    form.querySelector('.form-submit').textContent = '✓ Apuntado';
-    form.querySelector('.form-submit').disabled = true;
-
-    // Hacer scroll suave a la confirmación
-    setTimeout(() => {
-      status.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 100);
+    document.getElementById('subscribe-form-view').style.display = 'none';
+    document.getElementById('subscribe-confirmation').classList.add('active');
   }
 </script>
 
